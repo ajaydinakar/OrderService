@@ -1,8 +1,16 @@
 # OrderService
 
-'''
+This is a sample spring boot java application that exponses endpoints based on use cases that retrieve order data and customer data for a user  that is stored in cassandra database
 
-Start cassandra
+### cassandra setup 
+
+Install cassandran data base and start follow the below stop to integrate
+
+
+
+```
+
+
 Cassandra  -f
 
 ajaydinakar@Ajays-MacBook-Pro ~ % cqlsh
@@ -12,39 +20,36 @@ Connected to Test Cluster at 127.0.0.1:9042
 [cqlsh 6.0.0 | Cassandra 4.0.1 | CQL spec 3.4.5 | Native protocol v5]
 Use HELP for help.
 cqlsh> create keyspace order_service WITH replication={'class':'SimpleStrategy','replication_factor':'1'} AND durable_writes=true;
-cqlsh> describe keyspac
-'keyspac' not found in keyspaces
-cqlsh> describe keyspace
-No keyspace specified and no current keyspace
+
 cqlsh> describe keyspace order_service
 
 CREATE KEYSPACE order_service WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
 cqlsh> use keyspace order_service
-... ;
+   ... ;
 Improper use command.
 cqlsh> use order_service
-... ;
+   ... ;
 cqlsh:order_service> create table customer(id text,name text,phone_no text,PRIMARY KEY(id));
 cqlsh:order_service> select * from customer;
 
-id | name | phone_no
+ id | name | phone_no
 ----+------+----------
 
 (0 rows)
 cqlsh:order_service> INSERT INTO customer(id,name,phone_no) VALUES('c234567','Tom Hollande','9856789200') IF NOT EXISTS;
 
-[applied]
+ [applied]
 -----------
       True
 
 cqlsh:order_service> select * from customer;
 
-id      | name         | phone_no
+ id      | name         | phone_no
 ---------+--------------+------------
-c234567 | Tom Hollande | 9856789200
+ c234567 | Tom Hollande | 9856789200
 
 (1 rows)
-cqlsh:order_service>
+cqlsh:order_service> 
 
 
-'''
+```
