@@ -4,7 +4,7 @@ This is a sample spring boot java application that exponses endpoints based on u
 
 ### cassandra setup 
 
-Install cassandran data base and start follow the below stop to integrate
+Install cassandra database and start follow the below steps to integrate
 
 
 
